@@ -11,9 +11,8 @@ public class CodeController : MonoBehaviour
     public string currentText;
     TMP_Text textBox;
     [SerializeField ]TMP_Text nextPassText;
-    public string nextPass;
+    public string correctMessage;
     public bool correct;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +23,19 @@ public class CodeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textBox.text = currentText;
-        if(currentText == code)
+        if (!correct)
         {
-            correct = true;
-            nextPassText.text = "new password: " + nextPass;
-            textBox.text = "";
+            textBox.text = currentText;
+            if (currentText == code)
+            {
+                Solved();
+            }
         }
+    }
+
+    void Solved()
+    {
+        correct = true;
+        nextPassText.text = correctMessage;
     }
 }

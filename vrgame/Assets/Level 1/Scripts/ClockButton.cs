@@ -22,11 +22,12 @@ public class ClockButton : MonoBehaviour
     private void DisableButton()
     {
         button.GetComponent<XRGrabInteractable>().enabled = false;
-        button.GetComponent<Rigidbody>().isKinematic = true;
-        button.GetComponent<BoxCollider>().enabled = false;
-        button.GetComponent<CapsuleCollider>().enabled = false;
-        button.transform.localPosition = new Vector3(1.05799997f, 0.177000001f, 0);
-        button.transform.localRotation = new Quaternion(0.5f, 0.5f, 0.5f, 0.5f);
+        Destroy(button.GetComponent<XRGrabInteractable>());
+        Destroy(button.GetComponent<Rigidbody>());
+        button.transform.SetParent(transform);
+        button.transform.localPosition = new Vector3(0.0102000004f, -9.99999975e-05f, 0.00209999993f);
+        button.transform.localRotation = new Quaternion(0, 0.707106829f, 0, 0.707106829f);
+
 
 
     }
