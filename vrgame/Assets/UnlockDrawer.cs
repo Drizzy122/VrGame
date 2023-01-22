@@ -28,8 +28,9 @@ public class UnlockDrawer : MonoBehaviour
     }
     void Unlock()
     {
-        gameObject.AddComponent<XRGrabIneractableTwoAttach>();
+        gameObject.AddComponent<XROffsetGrabInteractable>();
         gameObject.AddComponent<Rigidbody>();
+        gameObject.GetComponent<Rigidbody>().mass = .5f;
         AS.Play();
         Debug.Log("hi");
 
